@@ -1,0 +1,21 @@
+Running simulation for 10x10x10...
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.32' not found (required by ./UniformGridBenchmark)
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `CXXABI_1.3.15' not found (required by ./UniformGridBenchmark)
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./UniformGridBenchmark)
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.26' not found (required by ./UniformGridBenchmark)
+FINISHED: perf_10x10x10.log
+Perf stats:      perf_10x10x10_perf.log
+Running simulation for 15x15x15...
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.32' not found (required by ./UniformGridBenchmark)
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `CXXABI_1.3.15' not found (required by ./UniformGridBenchmark)
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./UniformGridBenchmark)
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.26' not found (required by ./UniformGridBenchmark)
+FINISHED: perf_15x15x15.log
+Perf stats:      perf_15x15x15_perf.log
+Running simulation for 25x25x25...
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.32' not found (required by ./UniformGridBenchmark)
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `CXXABI_1.3.15' not found (required by ./UniformGridBenchmark)
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./UniformGridBenchmark)
+./UniformGridBenchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.26' not found (required by ./UniformGridBenchmark)
+FINISHED: perf_25x25x25.log
+Perf stats:      perf_25x25x25_perf.log

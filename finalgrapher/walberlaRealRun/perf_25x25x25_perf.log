@@ -1,0 +1,18 @@
+# started on Thu May  8 10:15:51 2025
+
+
+ Performance counter stats for './UniformGridBenchmark input.dat --timeloop.timingsOn=true':
+
+           576,852      dTLB-loads                                                  
+             6,297      dTLB-load-misses          #    1.09% of all dTLB cache accesses
+           406,847      iTLB-loads                                                  
+                34      iTLB-load-misses          #    0.01% of all iTLB cache accesses
+           470,026      L1-dcache-loads                                             
+             9,339      L1-dcache-load-misses     #    1.99% of all L1-dcache accesses
+
+       0.001916503 seconds time elapsed
+
+       0.000000000 seconds user
+       0.000952000 seconds sys
+
+
