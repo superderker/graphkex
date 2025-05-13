@@ -3,11 +3,13 @@ import re
 import pandas as pd
 
 # Directory containing your stats files
-stats_dir = "tlbtests"
+stats_dir = "tlbTests"
 
 # Directory to save the CSV files
 csv_dir = "csvFiles"
 os.makedirs(csv_dir, exist_ok=True)  # Ensure the directory exists
+
+sizes = ["32MiB", "16MiB", "8MiB", "4MiB", "2MiB", "1MiB", "512KiB"]
 
 # Patterns to extract memory and TLB-related statistics
 patterns = [
@@ -64,19 +66,20 @@ for filename in os.listdir(stats_dir):
         filepath = os.path.join(stats_dir, filename)
         with open(filepath, "r") as file:
             lines = file.readlines()
-
         stats_data = []
         for pattern in patterns:
+            count=0
             regex = re.compile(pattern)
             for line in lines:
                 if regex.search(line):
                     key, *rest = line.strip().split()
                     value = rest[0] if rest else ""
-                    stats_data.append((key, value))
-                    break
-
+                    stats_data.append((sizes[count],key, value))
+                    count+=1
+                    if count>(len(sizes)-1):
+                        break
         # Create DataFrame
-        df_stats = pd.DataFrame(stats_data, columns=["Statistic", "Value"])
+        df_stats = pd.DataFrame(stats_data, columns=["Benchmark","Statistic", "Value"])
 
         # Output CSV file with same base name
         output_csv = os.path.join(csv_dir, f"{os.path.splitext(filename)[0]}.csv")

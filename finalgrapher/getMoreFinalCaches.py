@@ -7,6 +7,7 @@ stats_dir = "tlbtests"
 output_dir = "csvFiles"
 os.makedirs(output_dir, exist_ok=True)
 
+sizes = ["32MiB", "16MiB", "8MiB", "4MiB", "2MiB", "1MiB", "512KiB"]
 # Relevant cache-related statistics
 patterns = [
     # L1 Instruction Cache (icache)
@@ -50,19 +51,22 @@ for filename in os.listdir(stats_dir):
         filepath = os.path.join(stats_dir, filename)
         with open(filepath, "r") as file:
             lines = file.readlines()
-
         stats_data = []
         for pattern in patterns:
+            count=0
             regex = re.compile(pattern)
             for line in lines:
                 if regex.search(line):
                     key, *rest = line.strip().split()
                     value = rest[0] if rest else ""
-                    stats_data.append((key, value))
-                    break
+                    stats_data.append((sizes[count],key, value))
+                    count+=1
+                    if count>(len(sizes)-1):
+                        break
+        # Create DataFrame
+        df_stats = pd.DataFrame(stats_data, columns=["Benchmark","Statistic", "Value"])
 
         # Save to CSV
-        df_stats = pd.DataFrame(stats_data, columns=["Statistic", "Value"])
         output_csv = os.path.join(output_dir, f"{os.path.splitext(filename)[0]}_cache.csv")
         df_stats.to_csv(output_csv, index=False)
         print(f"Saved: {output_csv}")
